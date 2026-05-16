@@ -1,6 +1,6 @@
 {
   "name": "@swavoti/next-pwa",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A library for turning Next.js applications into Progressive Web Apps.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
