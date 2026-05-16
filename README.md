@@ -66,11 +66,28 @@ The result is a seamless PWA experience with no manual configuration needed.
 
 ## License
 
-This library is provided free of charge and can be used in any project.
-
-The name and code of this library are a trademark of **Swavoti South Africa (Pty) Ltd**.
+This library is open-source and free to use.
 
 - You **are permitted** to use this library in your projects, commercial or otherwise.
-- You **are not permitted** to modify, distribute, or sublicense the original code.
+- You **are encouraged** to modify, edit, or improve the code.
+- You can contribute to this package to make it better for everyone.
 
-Only Swavoti South Africa (Pty) Ltd is authorized to maintain and publish updates to this library.
+## Contributing
+
+We welcome contributions from the community! If you have ideas for new features or improvements (like better caching strategies or modern PWA features), feel free to fork the repository and submit a pull request.
+
+**Git Repository:** [https://github.com/swavoti/swavoti-next-pwa]
+
+
+## Modern PWA Features
+
+### Background Sync
+This package now includes boilerplate support for **Background Sync**. This allows your application to defer actions until the user has stable connectivity.
+
+To use it, register a sync tag in your application:
+```javascript
+navigator.serviceWorker.ready.then((registration) => {
+  return registration.sync.register('sync-data');
+});
+```
+The service worker is configured to listen for the `sync-data` tag.
