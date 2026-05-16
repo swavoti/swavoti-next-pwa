@@ -5,11 +5,11 @@ const STATIC_ASSETS = [
 ];
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(STATIC_ASSETS);
-    })
-  );
+    event.waitUntil(
+        caches.open(CACHE_NAME).then((cache) => {
+            return cache.addAll(STATIC_ASSETS);
+        })
+    );
 });
 
 self.addEventListener('activate', (event) => {
@@ -71,3 +71,17 @@ self.addEventListener('fetch', (event) => {
         })
     );
 });
+
+//background sync logic flow 
+self.addEventListener('sync', (event) => {
+    if (event.tag === 'sync-data') {
+        console.log('[SW] Background sync triggered: sync-data');
+        event.waitUntil(handleSyncData());
+    }
+});
+
+async function handleSyncData() {
+
+    //debug log if something went wrong or process gets stuck
+    console.error('[SW] Error: Background sync process encountered a problem.');
+}
